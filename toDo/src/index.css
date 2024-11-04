@@ -1,0 +1,27 @@
+:root {
+  --one: #e3f2fd;
+  --two: #607d8b;
+  --tree: #81c784;
+  --four: #ff7043;
+  --five: #031927;
+  --six: #9DD1F1;
+  --seven:#508AA8;
+  --eight: #C8E0F4;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.contenedor{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  height: 100%;
+  border: 1px red solid; 
+  padding: 20px;
+}
+
