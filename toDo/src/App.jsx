@@ -7,26 +7,51 @@ function App() {
   const [listaTareas, setListaTareas] = useState([]);
   const [editId, setEditId] = useState(null);
 
-  const datosTarea={
+  const datosTarea = {
     id: Date.now(),
-    text:tarea
+    text: tarea
+  }
+
+  const agregarTarea = () => {
+
+    console.log(editId);
+
+    if (editId) {
+      const newTodo = listaTareas.map((item) =>
+        item.id === editId ? { ...item, text: tarea } : item
+      )
+      setListaTareas(newTodo)
+      setEditId(null)
+    } else {
+      setListaTareas([...listaTareas, datosTarea])
+    }
+    setTarea('')
   }
 
 
+  const editar = (id) => {
+    const tareaEditar = listaTareas.find((item) => item.id === id)
+    
+    console.log(tareaEditar);
+    
 
+  }
 
 
   return (
     <div className="contenedor">
-      <Informacion listaTareas={listaTareas} />
+      <Informacion
+        listaTareas={listaTareas}
+        editar={editar}
+      />
+
       <br />
       <Formulario
         tarea={tarea}
         setTarea={setTarea}
-        listaTareas={listaTareas}
-        setListaTareas={setListaTareas}
         datosTarea={datosTarea}
-        editId={editId}
+        agregarTarea={agregarTarea}
+
       />
     </div>
   );

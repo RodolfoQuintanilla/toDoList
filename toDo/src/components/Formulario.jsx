@@ -1,21 +1,8 @@
-const Formulario = ({ tarea, setTarea, listaTareas, setListaTareas, datosTarea, editId, setEditId }) => {
+const Formulario = ({ tarea, setTarea, agregarTarea }) => {
 
 
 
-  const agregarTarea = () => {
-    if (editId) {
-      const newTodo = listaTareas.map((item) =>
-        item.id === editId ? { ...item, text: tarea } : item
-      )
-      setListaTareas(newTodo)
-      setEditId(null)
-    } else {
-      setListaTareas([...listaTareas, datosTarea])
-    }
-    setTarea('')
-  }
 
- 
 
   return (
     <div>
