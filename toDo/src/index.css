@@ -1,12 +1,11 @@
 :root {
-  --one: #e3f2fd;
-  --two: #607d8b;
-  --tree: #81c784;
-  --four: #ff7043;
-  --five: #031927;
-  --six: #9DD1F1;
-  --seven:#508AA8;
-  --eight: #C8E0F4;
+  --one: white;
+  --two: black;
+  --tree: #f20fa3;
+  --four: #d929cd;
+  --five: #9d49f2;
+  --six: #3a1b59;
+  --seven: #260101;
 }
 
 * {
@@ -15,13 +14,43 @@
   padding: 0;
 }
 
-.contenedor{
+body {
+  background-color: var(--two);
+  color: var(--one);
+}
+
+.contenedor {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 500px;
-  height: 100%;
-  border: 1px red solid; 
+  width: 50%;
+  height: 80vh;
   padding: 20px;
+  border: 1px red solid;
+  margin: 0 auto;
+  margin-top: 1rem;
 }
 
+.info {
+  border: 1px purple solid;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  height: 60vh;
+}
+
+.form {
+  border: 1px orange solid;
+  text-align: center;
+  padding: 10px;
+}
+
+@media screen and (max-width: 820px) {
+  .contenedor {
+    width: 90%;
+    height: 100%;
+  }
+  .info {
+    width: 100%;
+  }
+}

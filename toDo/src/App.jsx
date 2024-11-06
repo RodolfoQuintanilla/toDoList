@@ -12,48 +12,57 @@ function App() {
     text: tarea
   }
 
-  const agregarTarea = () => {
-
-    console.log(editId);
-
+  const agregarTarea = (e) => {
+    e.preventDefault();
     if (editId) {
-      const newTodo = listaTareas.map((item) =>
+      const newlistaTareas = listaTareas.map((item) =>
         item.id === editId ? { ...item, text: tarea } : item
       )
-      setListaTareas(newTodo)
-      setEditId(null)
+      setListaTareas(newlistaTareas);
+      setEditId(null);
+
     } else {
+      /*    setTarea(tarea) */
       setListaTareas([...listaTareas, datosTarea])
     }
-    setTarea('')
+    setTarea("")
   }
-
 
   const editar = (id) => {
-    const tareaEditar = listaTareas.find((item) => item.id === id)
-    
-    console.log(tareaEditar);
-    
+    const trareaEditar = listaTareas.filter(item => item.id === id)
 
+    if (trareaEditar) {
+      setTarea(trareaEditar[0].text);
+      setEditId(id);
+    }
   }
 
+  const eliminar = (id) => {
+    const upDateListaTareas = listaTareas.filter((item) => item.id !== id)
+    setListaTareas(upDateListaTareas);
+  }
 
   return (
-    <div className="contenedor">
-      <Informacion
-        listaTareas={listaTareas}
-        editar={editar}
-      />
-
+    <>
+      <div className="info">
+        <Informacion
+          listaTareas={listaTareas}
+          editar={editar}
+          eliminar={eliminar}
+        />
+      </div>
       <br />
-      <Formulario
-        tarea={tarea}
-        setTarea={setTarea}
-        datosTarea={datosTarea}
-        agregarTarea={agregarTarea}
 
-      />
-    </div>
+      <div className="form">
+        <Formulario
+          tarea={tarea}
+          setTarea={setTarea}
+          datosTarea={datosTarea}
+          agregarTarea={agregarTarea}
+          editId={editId}
+        />
+      </div>
+    </>
   );
 }
 

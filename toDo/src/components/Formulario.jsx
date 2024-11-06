@@ -1,8 +1,4 @@
-const Formulario = ({ tarea, setTarea, agregarTarea }) => {
-
-
-
-
+const Formulario = ({ tarea, setTarea, agregarTarea,editId }) => {
 
   return (
     <div>
@@ -14,7 +10,7 @@ const Formulario = ({ tarea, setTarea, agregarTarea }) => {
           value={tarea}
           onChange={(e) => setTarea(e.target.value)}
         />
-        <input type="button" value="Enviar" onClick={agregarTarea} />
+        <input type="button" value="enviar" onClick={agregarTarea} />
       </form>
     </div>
   );
