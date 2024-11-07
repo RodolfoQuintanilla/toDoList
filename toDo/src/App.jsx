@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Formulario from "./components/Formulario";
 import Informacion from "./components/Informacion";
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 
 function App() {
   const [tarea, setTarea] = useState("");
@@ -14,19 +16,25 @@ function App() {
 
   const agregarTarea = (e) => {
     e.preventDefault();
-    if (editId) {
-      const newlistaTareas = listaTareas.map((item) =>
-        item.id === editId ? { ...item, text: tarea } : item
-      )
-      setListaTareas(newlistaTareas);
-      setEditId(null);
-
+    if (tarea === "") {
+      alert("Debes ingresar una tarea");
     } else {
-      /*    setTarea(tarea) */
-      setListaTareas([...listaTareas, datosTarea])
+      if (editId) {
+        const newlistaTareas = listaTareas.map((item) =>
+          item.id === editId ? { ...item, text: tarea } : item
+        )
+        setListaTareas(newlistaTareas);
+        setEditId(null);
+
+      } else {
+        /*    setTarea(tarea) */
+        setListaTareas([...listaTareas, datosTarea])
+      }
+      setTarea("")
     }
-    setTarea("")
   }
+
+
 
   const editar = (id) => {
     const trareaEditar = listaTareas.filter(item => item.id === id)
@@ -40,6 +48,7 @@ function App() {
   const eliminar = (id) => {
     const upDateListaTareas = listaTareas.filter((item) => item.id !== id)
     setListaTareas(upDateListaTareas);
+    setEditId(null)
   }
 
   return (
@@ -52,7 +61,7 @@ function App() {
         />
       </div>
       <br />
-
+      
       <div className="form">
         <Formulario
           tarea={tarea}

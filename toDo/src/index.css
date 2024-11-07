@@ -6,6 +6,7 @@
   --five: #9d49f2;
   --six: #3a1b59;
   --seven: #260101;
+  --radius: 7px;
 }
 
 * {
@@ -26,23 +27,105 @@ body {
   width: 50%;
   height: 80vh;
   padding: 20px;
-  border: 1px red solid;
+
   margin: 0 auto;
   margin-top: 1rem;
 }
 
+/* componente Infromacion */
+
 .info {
-  border: 1px purple solid;
   padding: 10px;
   text-align: center;
-  width: 100%;
+  width: 60vh;
   height: 60vh;
 }
 
+.h1 {
+  font-size: 3rem;
+  color: var(--five);
+  margin-bottom: 10px;
+}
+
+.fecha {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+.liTareas {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 30px;
+  margin: 0 auto;
+  width: 100%;
+  background-image: linear-gradient(to right, #fc078b 0%, #af48ff 52%);
+  padding: 10px;
+  padding-left: 2rem;
+  border-radius: var(--radius);
+  margin-bottom: 10px;
+ 
+}
+
+.liTareas p {
+font-size: 1.5rem;
+}
+
+.btnEnd,
+.btnEdid {
+  all: unset;
+  font-size: 1.3rem;
+  border: none;
+  margin-right: 1rem;
+}
+
+.btnEnd:hover{
+  color: var(--seven);
+}
+
+.btnEdid:hover{
+  color: var(--seven);
+}
+
+/* Componente Formulario */
+
 .form {
-  border: 1px orange solid;
   text-align: center;
   padding: 10px;
+}
+
+.input__form {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 10px;
+  border-radius: var(--radius);
+  border: 2px solid var(--six);
+  background-color: var(--two);
+  color: var(--one);
+  font-size: 1rem;
+}
+.input__form::placeholder {
+  color: gray;
+}
+
+.input__form:focus {
+  border: 2px solid var(--five);
+  outline: none;
+}
+
+.btn {
+  width: 70%;
+  margin-bottom: 1rem;
+  padding: 20px 10px;
+  border-radius: var(--radius);
+  background-image: linear-gradient(to right, #af48ff, #fc078b);
+  border: none;
+  color: var(--one);
+  font-size: 1.5rem;
 }
 
 @media screen and (max-width: 820px) {

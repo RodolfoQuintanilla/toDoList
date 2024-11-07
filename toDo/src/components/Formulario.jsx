@@ -1,16 +1,20 @@
+
+
 const Formulario = ({ tarea, setTarea, agregarTarea,editId }) => {
 
   return (
     <div>
-      <h1>Formulario</h1>
+   
       <form>
-        <input
+        <input className="input__form"
+      
+     
           type="text"
           placeholder="Agrega una Tarea"
           value={tarea}
           onChange={(e) => setTarea(e.target.value)}
         />
-        <input type="button" value="enviar" onClick={agregarTarea} />
+        <input className="btn" type="button" value={!editId ? ('Agregar' ):('Editar')} onClick={agregarTarea} />
       </form>
     </div>
   );
