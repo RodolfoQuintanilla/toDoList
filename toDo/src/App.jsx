@@ -1,18 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Formulario from "./components/Formulario";
 import Informacion from "./components/Informacion";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 
 function App() {
+
+  const inicilaLocal = () => {
+    const localStorangeListaTarea = localStorage.getItem('listaTareas');
+    return localStorangeListaTarea ? JSON.parse(localStorangeListaTarea) : []
+  }
+
   const [tarea, setTarea] = useState("");
-  const [listaTareas, setListaTareas] = useState([]);
+  const [listaTareas, setListaTareas] = useState(inicilaLocal);
   const [editId, setEditId] = useState(null);
 
   const datosTarea = {
     id: Date.now(),
     text: tarea
   }
+
+  useEffect(() => {
+  localStorage.setItem("listaTareas", JSON.stringify(listaTareas))
+  }, [listaTareas])
 
   const agregarTarea = (e) => {
     e.preventDefault();
@@ -61,7 +71,7 @@ function App() {
         />
       </div>
       <br />
-      
+
       <div className="form">
         <Formulario
           tarea={tarea}

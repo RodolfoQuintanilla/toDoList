@@ -18,6 +18,9 @@
 body {
   background-color: var(--two);
   color: var(--one);
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 .contenedor {
@@ -45,6 +48,12 @@ body {
   font-size: 3rem;
   color: var(--five);
   margin-bottom: 10px;
+
+  font-family: "Doto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 1rem;
+  font-style: normal;
+  font-variation-settings: "ROND" 0;
 }
 
 .fecha {
@@ -68,11 +77,10 @@ ul li {
   padding-left: 2rem;
   border-radius: var(--radius);
   margin-bottom: 10px;
- 
 }
 
 .liTareas p {
-font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .btnEnd,
@@ -83,11 +91,11 @@ font-size: 1.5rem;
   margin-right: 1rem;
 }
 
-.btnEnd:hover{
+.btnEnd:hover {
   color: var(--seven);
 }
 
-.btnEdid:hover{
+.btnEdid:hover {
   color: var(--seven);
 }
 
